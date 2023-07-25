@@ -16,7 +16,7 @@ const reiniciar = document.getElementById("reinicio")           //llama a la sec
 joinGame()
 
 function joinGame() {
-    fetch("http://192.168.0.16:8080/join")
+    fetch("https://64c02bd7028bf2006be51d74--nimble-heliotrope-821f81.netlify.app/join")
         .then(function (res) {
             console.log(res)
             if (res.ok) {
@@ -282,7 +282,7 @@ function mokeponSeleccionado() {
 }
 
 function mokeponselection(mokeponJugador) {
-    fetch("http://192.168.0.16:8080/mokepon/" + playerId, {
+    fetch("https://64c02bd7028bf2006be51d74--nimble-heliotrope-821f81.netlify.app/mokepon/" + playerId, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -375,7 +375,7 @@ function Atacar(ataquesMokepones) {
  
 
  function sendAttacks () {
-    fetch("http://192.168.0.16:8080/mokepon/" + playerId + "/ataques", {
+    fetch("https://64c02bd7028bf2006be51d74--nimble-heliotrope-821f81.netlify.app/mokepon/" + playerId + "/ataques", {
         method: "post",
         headers:{
             "Content-Type": "application/json"
@@ -387,7 +387,7 @@ function Atacar(ataquesMokepones) {
     intervalo = setInterval(getAttacks, 1000)
  }
  function getAttacks() {
-    fetch("http://192.168.0.16:8080/mokepon/" + enemyId + "/ataques")
+    fetch("https://64c02bd7028bf2006be51d74--nimble-heliotrope-821f81.netlify.app/mokepon/" + enemyId + "/ataques")
         .then(function (res) {
             if (res.ok) {
                 res.json()
@@ -540,7 +540,7 @@ function drawMap() {
 }
 
 function sendposition(x, y) {
-    fetch(`http://192.168.0.16:8080/mokepon/${playerId}/position`, {
+    fetch(`https://64c02bd7028bf2006be51d74--nimble-heliotrope-821f81.netlify.app/mokepon/${playerId}/position`, {
         method: "post",
         headers:  {
             "Content-Type": "application/json"
