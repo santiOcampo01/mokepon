@@ -4,10 +4,13 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use((req, res, next) => {
+
+function permission(){ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*")
     next()
 })
+}
+
 
 
 const players = []
@@ -40,7 +43,7 @@ app.get("/join", (req, res) => {
     const id = `${Math.random()}`
 
     const player = new Player(id)
-
+    permission()
     players.push(player)
     res.send(id)
 })
@@ -107,7 +110,6 @@ app.get("/mokepon/:playerId/ataques", (req, res) => {
 const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
-    console.log("servidor en linea")
-})
-
+    console.log(`Server running on https://192.168.0.16:${PORT}`);
+  });
 
