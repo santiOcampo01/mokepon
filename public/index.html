@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8" />
+        <title>Mokepon 🔥💧🌱</title>
+        <link rel="stylesheet" href="mokeponCss.css"> <!--para llamar al css-->
+    </head>
+    <body> 
+        <!--asi se agrean comentarios en html-->
+        <!--class o id para modificarlos desde el css, clas agregando un punto "." al inicio y id un numeral "#" -->
+
+
+            <!--section para dividir por secciones nuestro html y podemos agregar un id--> 
+        <sectionid  id="seleccionarMokepon" >
+            <section class="seleccionarMokepon">
+                 <h1 class="title">Mokepon, Atrapalos a todos</h1>
+
+            <h2 class="title2">Selecciona un Mokepon.</h2>
+            
+            <div id="mokeponContainer"class="targetas"></div>
+
+            </div>
+
+            <label for="mokeponseleccionado"><button id="mokeponseleccionado">selecciona</button></label> <br>
+            </section>
+        </sectionid>
+
+        <section id="map">
+            <h1 class="tittleMap">go trougth the map with your Mokepon</h1>
+            <canvas id="mapMokepon"></canvas>
+                <button class="buttonInicio" ontouchend="stopMoving()" ontouchstart="moveUp()" ontouchleave="stopMoving()">↑</button>
+            <div class="arrows">
+                <button ontouchend="stopMoving()" ontouchstart="moveLeft()" ontouchleave="stopMoving()">←</button>
+                <button ontouchend="stopMoving()" ontouchstart="moveDown()" ontouchleave="stopMoving()">↓</button>
+                <button  ontouchend="stopMoving()" ontouchstart="moveRight()" ontouchleave="stopMoving()">→</button>
+            </div>
+        </section>
+
+        <sectionid id="selecionarAtaque">
+            <br>
+            <h1 class="title">Mokepon, Atrapalos a todos</h1>
+            <br>
+
+            <h2 class="title2">Selecciona un ataque:</h2>
+
+            <div id="buttonAttacks" class="botonesA">
+
+            </div>
+
+            <div id="mensajes">
+
+                    <p id="result"></p>
+
+                    <section id="reinicio">
+                        <button id="botonReinicio">Quieres jugar otra vez?</button>
+                    </section>
+            </div>
+        
+        <div class="attacks">
+            <div class="textAtackPlayer">
+                <p id="vidasDelMokepon">0</p>
+                <strong><p id="mokeponJugador"></p></strong>
+                <div id="playerAttack"></div>
+            </div>
+            <div class="textAtackEnemy">
+                <p id="vidaEnemigo">0</p>
+                <strong><p id="mokeponEnemigo"></p></strong>
+                <div id="enemyAttack"></div>   
+            </div>
+        
+        </div>
+        </section>
+        <!--el script antes del cierre del body para que se cargue el html primero (se puede hacer con "defer")-->
+        <script src="mokepon.js" defer></script>
+    </body>
+</html>
