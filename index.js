@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const app = express()
 
+app.use(express.static("https://santiocampo01.github.io/mokepon/public/"))
 app.use(cors())
 app.use(express.json())
 
@@ -106,6 +107,6 @@ app.get("/mokepon/:playerId/ataques", (req, res) => {
 const PORT = process.env.PORT || 8080
 
 app.listen(PORT, () => {
-    console.log(`Server running on https://192.168.0.16:${PORT}`);
+    console.log(`Server running on http://192.168.0.16:${PORT}`);
   });
 
