@@ -40,7 +40,7 @@ app.get("/join", (req, res) => {
     const id = `${Math.random()}`
 
     const player = new Player(id)
-    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Origin", "https://santiocampo01.github.io/mokepon/public/")
     players.push(player)
     res.send(id)
 })
