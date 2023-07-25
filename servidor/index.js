@@ -39,11 +39,7 @@ app.get("/join", (req, res) => {
     const id = `${Math.random()}`
 
     const player = new Player(id)
-    app.use((req, res, next) => {
-        res.setHeader("Access-Control-Allow-Origin", "*")
-        next()
-    })
-    
+    res.setHeader("Access-Control-Allow-Origin", "*")
     players.push(player)
     res.send(id)
 })
