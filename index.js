@@ -45,7 +45,7 @@ app.get("/join", (req, res) => {
     res.send(id)
 })
 
-app.post("/mokepon/:playerId", (req, res) => {
+app.post("/playmokepon/:playerId", (req, res) => {
     const playerId = req.params.playerId || ""
     const name = req.body.mokepon || ""
     const mokepon = new Mokepon(name)
@@ -65,7 +65,7 @@ app.post("/mokepon/:playerId", (req, res) => {
     res.end()
 })
 
-app.post("/mokepon/:playerId/position", (req, res) => {
+app.post("/playmokepon/:playerId/position", (req, res) => {
     const playerId = req.params.playerId || ""
     const x = req.body.x || 0 
     const y = req.body.y || 0
@@ -82,7 +82,7 @@ app.post("/mokepon/:playerId/position", (req, res) => {
     })
 })
 
-app.post("/mokepon/:playerId/ataques", (req, res) => {
+app.post("/playmokepon/:playerId/ataques", (req, res) => {
     const playerId = req.params.playerId || ""
     const ataques = req.body.ataques || []
 
@@ -95,7 +95,7 @@ app.post("/mokepon/:playerId/ataques", (req, res) => {
 })
 
 
-app.get("/mokepon/:playerId/ataques", (req, res) => {
+app.get("/playmokepon/:playerId/ataques", (req, res) => {
     const playerId = req.params.playerId || ""
     const player = players.find((player) => player.id === playerId)
     res.send({
