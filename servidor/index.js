@@ -5,11 +5,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-function permission(){ app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*")
-    next()
-})
-}
+
 
 
 
@@ -43,7 +39,11 @@ app.get("/join", (req, res) => {
     const id = `${Math.random()}`
 
     const player = new Player(id)
-    permission()
+    app.use((req, res, next) => {
+        res.setHeader("Access-Control-Allow-Origin", "*")
+        next()
+    })
+    
     players.push(player)
     res.send(id)
 })
