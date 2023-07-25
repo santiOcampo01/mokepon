@@ -2,9 +2,13 @@ const express = require("express")
 const cors = require("cors")
 const app = express()
 
-app.use(express.static("public"))
 app.use(cors())
 app.use(express.json())
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*")
+    next()
+})
+
 
 const players = []
 
@@ -38,9 +42,6 @@ app.get("/join", (req, res) => {
     const player = new Player(id)
 
     players.push(player)
-
-    res.setHeader("Access-Control-Allow-Origin", "*")
-
     res.send(id)
 })
 
