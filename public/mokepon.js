@@ -16,7 +16,7 @@ const reiniciar = document.getElementById("reinicio")           //llama a la sec
 joinGame()
 
 function joinGame() {
-    fetch("https://santiocampo01.github.io/join")
+    fetch("https://santiocampo01.github.io/mokepon/join")
         .then(function (res) {
             console.log(res)
             if (res.ok) {
