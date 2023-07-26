@@ -45,31 +45,25 @@ app.get("/join", (req, res) => {
     res.send(id)
 })
 
-function limpiarMokepones(playerIndex) {
-    players[playerIndex].mokepon = null;
-    players[playerIndex].ataques = [];
-}
-
 app.post("/playmokepon/:playerId", (req, res) => {
-    const playerId = req.params.playerId || "";
-    const name = req.body.mokepon || "";
-    const mokepon = new Mokepon(name);
-    const playerIndex = players.findIndex((player) => playerId === player.id);
+    const playerId = req.params.playerId || ""
+    const name = req.body.mokepon || ""
+    const mokepon = new Mokepon(name)
+    const playerIndex = players.findIndex((player) => playerId === player.id)
 
-    if (playerIndex >= 0) {
-        players[playerIndex].getMokepon(mokepon);
-        limpiarMokepones(playerIndex); // Llamamos a esta función al finalizar la batalla
-        res.send("players[playerIndex]");
-    } else if (players.length >= 2) {
-        players.shift();
-        res.send("no puedes tener mas de 2 mokepon");
+    if(playerIndex >= 0 ) {
+        players[playerIndex].getMokepon(mokepon)
+        res.send("players[playerIndex]")
+
+    }else if(players >= 2){
+        players.shift()
+        res.send("no puedes tener mas de 2 mokepon")
     }
 
-    console.log(players);
-    console.log(playerId);
-    res.end();
-});
-
+    console.log(players)
+    console.log(playerId)
+    res.end()
+})
 
 app.post("/playmokepon/:playerId/position", (req, res) => {
     const playerId = req.params.playerId || ""
