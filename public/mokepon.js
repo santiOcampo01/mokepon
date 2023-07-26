@@ -684,3 +684,42 @@ function colision(enemy) {
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+function limpiarAtaques() {
+    ataquePlayer = [];
+    botones.forEach(boton => {
+        boton.disabled = false;
+        boton.style.background = "rgba(17, 47, 88, 0.5)";
+    });
+}
+
+function reiniciarMokepones() {
+    victoriasMokepon = 0;
+    victoriasEnemigo = 0;
+    textoVidaMokepon.innerHTML = victoriasMokepon;
+    textoVidaEnemigo.innerHTML = victoriasEnemigo;
+    mokeponButtonAttacks.innerHTML = "";
+    clearInterval(intervalo);
+    limpiarAtaques();
+    sectionAtaque.style.display = "none";
+    sectionOfMap.style.display = "flex";
+    chargemap();
+}
+
+function cicloVidas() {
+    if (victoriasMokepon > victoriasEnemigo) {
+        mensajeFinal("Ganaste esta batalla Mokepon!!");
+        reiniciarPartida.style.display = "block";
+    } else if (victoriasEnemigo > victoriasMokepon) {
+        mensajeFinal("Lo siento, perdiste bro");
+        reiniciarPartida.style.display = "block";
+    } else {
+        mensajeFinal("Empataste ma broda");
+        reiniciarPartida.style.display = "block";
+    }
+
+    reiniciarMokepones(); // Llamamos a esta función al final de cicloVidas
+}
+
+// Agregar esta línea al final del frontend para llamar a la función joinGame al cargar la página
+joinGame();
