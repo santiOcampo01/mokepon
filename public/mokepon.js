@@ -16,7 +16,7 @@ const reiniciar = document.getElementById("reinicio")           //llama a la sec
 joinGame()
 
 function joinGame() {
-    fetch("https://santiocampo01.github.io/mokepon/join")
+    fetch("https://mokepon-qqxx.onrender.com/join")
         .then(function (res) {
             console.log(res)
             if (res.ok) {
@@ -282,7 +282,7 @@ function mokeponSeleccionado() {
 }
 
 function mokeponselection(mokeponJugador) {
-    fetch("https://santiocampo01.github.io/playmokepon/" + playerId, {
+    fetch("https://mokepon-qqxx.onrender.com/playmokepon/" + playerId, {
         method: "post",
         headers: {
             "Content-Type": "application/json"
@@ -375,7 +375,7 @@ function Atacar(ataquesMokepones) {
  
 
  function sendAttacks () {
-    fetch("https://santiocampo01.github.io/playmokepon/" + playerId + "/ataques", {
+    fetch("https://mokepon-qqxx.onrender.com/playmokepon/" + playerId + "/ataques", {
         method: "post",
         headers:{
             "Content-Type": "application/json"
@@ -387,7 +387,7 @@ function Atacar(ataquesMokepones) {
     intervalo = setInterval(getAttacks, 1000)
  }
  function getAttacks() {
-    fetch("https://santiocampo01.github.io/playmokepon/" + enemyId + "/ataques")
+    fetch("https://mokepon-qqxx.onrender.com/playmokepon/" + enemyId + "/ataques")
         .then(function (res) {
             if (res.ok) {
                 res.json()
@@ -540,7 +540,7 @@ function drawMap() {
 }
 
 function sendposition(x, y) {
-    fetch(`https://santiocampo01.github.io/playmokepon/${playerId}/position`, {
+    fetch(`https://mokepon-qqxx.onrender.com/playmokepon/${playerId}/position`, {
         method: "post",
         headers:  {
             "Content-Type": "application/json"
